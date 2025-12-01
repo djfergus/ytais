@@ -9,8 +9,8 @@ RUN apk add --no-cache \
     ca-certificates \
     shadow \
     yt-dlp \
-    && pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir curl-cffi \
+    && pip install --break-system-packages --no-cache-dir --upgrade pip \
+    && pip install --break-system-packages --no-cache-dir curl-cffi \
     && addgroup -g 1000 -S appgroup \
     && adduser -S appuser -u 1000 -G appgroup
 
