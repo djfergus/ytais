@@ -2,7 +2,7 @@ services:
   app:
     build: .
     ports:
-      - "8080:8080"
+      - "33032:33032"
     volumes:
       - .:/workspace
     working_dir: /workspace

@@ -46,7 +46,7 @@ class URLHandler(socketserver.BaseRequestHandler):
             self.request.close()
 
 if __name__ == "__main__":
-    print("Daemon started, listening on TCP port 8080", file=sys.stderr)
-    server = socketserver.ThreadingTCPServer(("0.0.0.0", 8080), URLHandler)
+    print("Daemon started, listening on TCP port 33032", file=sys.stderr)
+    server = socketserver.ThreadingTCPServer(("0.0.0.0", 33032), URLHandler)
     server.timeout = 0.5  # Non-blocking poll
     server.serve_forever()
