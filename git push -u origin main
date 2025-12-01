@@ -1,0 +1,5 @@
+
+## Files
+- `daemon.py`: Flask app handling `/process`.
+- `Dockerfile`: Lightweight Alpine image.
+- `docker-compose.yml`: Easy local deployment.
