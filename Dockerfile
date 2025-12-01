@@ -17,4 +17,4 @@ RUN apk add --no-cache \
 USER appuser
 WORKDIR /workspace
 
-CMD ["/bin/sh"]
+CMD ["python3", "daemon.py"]

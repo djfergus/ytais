@@ -1,8 +1,8 @@
 services:
   app:
     build: .
+    ports:
+      - "8080:8080"
     volumes:
       - .:/workspace
     working_dir: /workspace
-    stdin_open: true
-    tty: true
