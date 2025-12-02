@@ -17,4 +17,7 @@ RUN apk add --no-cache \
 USER appuser
 WORKDIR /workspace
 
+# Verify we're running as non-root user
+RUN id && pwd
+
 CMD ["python3", "daemon.py"]

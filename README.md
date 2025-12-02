@@ -5,7 +5,11 @@ A simple Flask-based daemon that uses `yt-dlp` to download subtitles (manual and
 ## Features
 - Extracts English subtitles (`en.*`) in SRT format.
 - Supports both manual and auto-generated subs.
-- Timeout protection (5 minutes per request).
+- Timeout protection (configurable, default 5 minutes per request).
+- Security features: URL validation, rate limiting, request size limits.
+- Health check endpoint for monitoring.
+- Structured logging for debugging and monitoring.
+- Automatic cleanup of generated subtitle files.
 - Runs in Docker for easy deployment.
 
 ## Quick Start (Local Development)
@@ -20,5 +24,10 @@ A simple Flask-based daemon that uses `yt-dlp` to download subtitles (manual and
 
 ## API Usage
 
-Send a POST request to `/process` with the raw body containing the URL (first line is used):
+### Health Check
+GET `/health`
+Returns service status and timestamp.
+
+### Process URL
+POST `/process` with the raw body containing the URL (first line is used):
 
