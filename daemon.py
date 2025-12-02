@@ -115,13 +115,26 @@ def process_url():
 
         if result.returncode == 0:
             subtitle_files = get_subtitle_files()
-            cleanup_subtitles()
+            
+            # Save files to a persistent location
+            saved_files = []
+            for subtitle_file in subtitle_files:
+                try:
+                    # Create a unique filename based on timestamp
+                    timestamp = int(time.time())
+                    new_filename = f"subtitles_{timestamp}_{subtitle_file}"
+                    os.rename(subtitle_file, new_filename)
+                    saved_files.append(new_filename)
+                    logger.info(f"Saved subtitle file: {new_filename}")
+                except Exception as e:
+                    logger.error(f"Failed to save {subtitle_file}: {e}")
+            
             duration = time.time() - start_time
             logger.info(f"Request completed successfully in {duration:.2f}s")
             return jsonify({
                 "status": "OK", 
                 "output": result.stdout,
-                "subtitle_files": subtitle_files
+                "subtitle_files": saved_files
             })
         else:
             # Check for common yt-dlp errors
