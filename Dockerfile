@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     shadow \
     yt-dlp \
     && pip install --break-system-packages --no-cache-dir --upgrade pip \
-    && pip install --break-system-packages --no-cache-dir curl-cffi flask \
+    && pip install --break-system-packages --no-cache-dir curl-cffi flask openai python-dotenv \
     && addgroup -g 1000 -S appgroup \
     && adduser -S appuser -u 1000 -G appgroup
 
